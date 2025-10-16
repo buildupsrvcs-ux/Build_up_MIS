@@ -1,0 +1,239 @@
+/* Star Rating Styles */
+.star-rating {
+    cursor: pointer;
+}
+
+.star {
+    transition: all 0.2s ease;
+}
+
+.star:hover,
+.star.active {
+    color: #fbbf24;
+}
+
+/* Gradient Background - Blue theme */
+.gradient-bg {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+}
+
+/* Service Card Animations */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    color: white;
+    z-index: 50;
+    transition: opacity 0.3s ease;
+}
+
+.notification.success {
+    background-color: #10b981;
+}
+
+.notification.error {
+    background-color: #ef4444;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Client Grid Styles */
+.client-card {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.client-card:hover {
+    transform: translateY(-4px);
+}
+
+.client-card.expanded {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.client-testimonial {
+    max-height: 3rem;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.client-card.expanded .client-testimonial {
+    max-height: none;
+    overflow: visible;
+}
+
+/* Gallery Image Styles */
+.gallery-image-container {
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.gallery-image-container.expanded {
+    z-index: 10 !important;
+    grid-column: span 2 !important;
+    grid-row: span 2 !important;
+    position: relative;
+}
+
+.gallery-image {
+    transition: all 0.3s ease;
+    height: 12rem; /* h-48 equivalent */
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery-image.expanded {
+    height: 24rem !important; /* h-96 equivalent */
+    transform: scale(1.1) !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25) !important;
+    z-index: 15 !important;
+    position: relative;
+}
+
+/* Responsive adjustments for expanded images */
+@media (max-width: 768px) {
+    #clientGalleryGrid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+        overflow-y: auto;
+        max-height: 60vh;
+    }
+    
+    .gallery-image-container {
+        width: 100%;
+    }
+    
+    .gallery-image-container.expanded {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
+    
+    .gallery-image {
+        height: 16rem !important;
+        width: 100%;
+    }
+    
+    .gallery-image.expanded {
+        height: 20rem !important;
+        transform: scale(1.02) !important;
+    }
+    
+    /* Ensure modal is scrollable on mobile */
+    #clientGalleryModal .bg-white {
+        max-height: 95vh;
+        overflow-y: auto;
+    }
+    
+    #clientGalleryModal .p-6 {
+        padding: 1rem;
+    }
+}
+
+/* Desktop specific gallery styles */
+@media (min-width: 769px) {
+    .gallery-image-container.expanded {
+        grid-column: span 2 !important;
+        grid-row: span 2 !important;
+    }
+    
+    .gallery-image.expanded {
+        height: 28rem !important; /* Larger on desktop */
+        transform: scale(1.05) !important;
+    }
+}
+
+/* Product Quote Modal Styles */
+.product-checkbox:checked + div {
+    border-color: #3b82f6;
+}
+
+.quantity-input {
+    text-align: center;
+}
+
+.quantity-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 1px #3b82f6;
+}
+
+/* Mobile Menu Toggle (if needed later) */
+@media (max-width: 768px) {
+    .service-card {
+        margin-bottom: 1rem;
+    }
+    
+    .client-slide .bg-white {
+        margin: 0 1rem;
+        padding: 1.5rem;
+    }
+    
+    .client-slide .w-32 {
+        width: 6rem;
+        height: 6rem;
+    }
+    
+    /* Additional mobile fixes for client gallery */
+    .gallery-image-container {
+        min-height: 16rem;
+    }
+    
+    #clientGalleryModal {
+        padding: 0.5rem;
+    }
+    
+    #clientGalleryModal .bg-white {
+        border-radius: 1rem;
+    }
+    
+    /* Ensure images are properly sized on mobile */
+    .gallery-image {
+        min-height: 16rem;
+        object-fit: cover;
+    }
+    
+    /* Quote modal mobile adjustments */
+    #quoteModal .bg-white {
+        max-height: 95vh;
+    }
+    
+    #totalPrice {
+        font-size: 1.5rem;
+    }
+}
+
